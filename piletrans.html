@@ -1,0 +1,121 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Computer Graphics : Assignment 3</title>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body style="font-family:verdana;">
+<br>
+<header>Computer Graphics : Final Project</header>
+<p align ="center" style="color:black;font-family:TimesNewRoman;font-size:150%;"> 3D Transformations on the Object </p>
+<div class = "wrapper">
+    <table align="center">
+        <tr>
+            <td><a href="housetrans.html" class="button">House</a></td>
+            <td><a href="slidetrans.html" class="button">Sliding box</a></td>
+            <td><a href="piletrans.html" class="button">Pile of boxes</a></td>
+            <td><a href="house.html" class="button">2D views</a></td>
+        </tr>
+
+    </table>
+</div>
+<div >
+    <table align="center">
+        <tr><td>Translate : <input type="text" id="trans" min="100" max="400" value="100" onchange="funcfronttrans(this.value)"></td>
+            <td> Enter as 100,200,300....</td></tr>
+        <tr><td>Rotate : <input type="text" id="trans" min="0" max="360" value="0" onchange="funcfrontrot(this.value)"></td>
+            <td> Enter angle between 0 to 360 degrees</td></tr>
+        <tr><td>Scale : <input type="text" id="trans" min="1" max="2" step='0.05' value="1" onchange="funcfrontscale(this.value)"></td>
+            <td> Enter as increase intervals of 0.05 eg: 1,1.05,1.10...</td></tr>
+        <tr><td>Shear : <input type="text" id="trans" min="0" max="360" value="0" onchange="funcfrontshear(this.value)"></td>
+            <td> Enter angle between 0 to 360 degrees</td></tr>
+    </table>
+</div>
+
+
+<div id="divfrontsvg" style="overflow:hidden">
+
+    <svg id="front" height="700" width="1500" style="">
+        <line x1="400" y1="560" x2="223" y2="383" style="stroke:black ;stroke-width:4" />
+        <line x1="400" y1="560" x2="565" y2="390" style="stroke:black ;stroke-width:4" />
+        <line x1="400" y1="560" x2="400" y2="530" style="stroke:black ;stroke-width:4" />
+        <line x1="223" y1="383" x2="223" y2="353" style="stroke:black ;stroke-width:4" />
+        <line x1="223" y1="353" x2="400" y2="530" style="stroke:black ;stroke-width:4" />
+
+        <line x1="400" y1="530" x2="510" y2="420" style="stroke:black ;stroke-width:4" />
+
+        <line x1="510" y1="420" x2="510" y2="390" style="stroke:black ;stroke-width:4" />
+        <line x1="223" y1="353" x2="300" y2="280" style="stroke:black ;stroke-width:4" />
+
+        <line x1="390" y1="365" x2="390" y2="255" style="stroke:black ;stroke-width:4" />
+
+        <line x1="300" y1="280" x2="390" y2="365" style="stroke:black ;stroke-width:4" />
+
+        <line x1="300" y1="280" x2="300" y2="180" style="stroke:black ;stroke-width:4" />
+        <line x1="300" y1="180" x2="390" y2="255" style="stroke:black ;stroke-width:4" />
+
+        <line x1="300" y1="180" x2="390" y2="120" style="stroke:black ;stroke-width:4" />
+
+        <line x1="390" y1="255" x2="480" y2="190" style="stroke:black ;stroke-width:4" />
+        <line x1="390" y1="120" x2="480" y2="190" style="stroke:black ;stroke-width:4" />
+
+        <line x1="480" y1="190" x2="480" y2="260" style="stroke:black ;stroke-width:4" />
+
+
+        <line x1="480" y1="260" x2="565" y2="340" style="stroke:black ;stroke-width:4" />
+
+        <line x1="565" y1="340" x2="565" y2="390" style="stroke:black ;stroke-width:4" />
+        <line x1="480" y1="260" x2="425" y2="310" style="stroke:black ;stroke-width:4" />
+
+        <line x1="565" y1="340" x2="510" y2="390" style="stroke:black ;stroke-width:4" />
+
+        <line x1="425" y1="310" x2="510" y2="390" style="stroke:black ;stroke-width:4" />
+        <line x1="425" y1="310" x2="425" y2="340" style="stroke:black ;stroke-width:4" />
+        <line x1="425" y1="340" x2="390" y2="365" style="stroke:black ;stroke-width:4" />
+
+        <line x1="425" y1="340" x2="510" y2="420" style="stroke:black ;stroke-width:4" />
+
+
+    </svg>
+</div>
+
+
+
+
+<script>
+    //functions to perform 2D transformations on front view
+
+    function funcfronttrans(value) {
+        document.getElementById("trans").value=value;
+        var x = value;
+        var y="translate("+x+"px,0px)";
+        document.getElementById("front").style.transform = y;
+    }
+
+    function funcfrontrot(value) {
+        var i=value+" deg";
+        var x = value;
+        var y="rotate("+x+"deg)";
+        document.getElementById("front").style.transform = y;
+    }
+
+    function funcfrontscale(value) {
+        var x = value;
+        var y="scale("+x+","+x+")";
+        document.getElementById("front").style.transform = y;
+    }
+
+    function funcfrontshear(value) {
+        var i=value+" deg";
+        var x = value;
+        var y="skewX("+x+"deg)";
+        document.getElementById("front").style.transform = y;
+    }
+
+
+</script>
+</body>
+</html>

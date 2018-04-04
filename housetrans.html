@@ -1,0 +1,100 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Computer Graphics : Assignment 3</title>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body style="font-family:verdana;">
+<br>
+<header>Computer Graphics : Final Project</header>
+<p align ="center" style="color:black;font-family:TimesNewRoman;font-size:150%;"> 3D Transformations on the Object </p>
+<div class = "wrapper">
+    <table align="center">
+        <tr>
+            <td><a href="housetrans.html" class="button">House</a></td>
+            <td><a href="slidetrans.html" class="button">Sliding box</a></td>
+            <td><a href="piletrans.html" class="button">Pile of boxes</a></td>
+            <td><a href="house.html" class="button">2D views</a></td>
+        </tr>
+
+    </table>
+</div>
+
+<div >
+    <table align="center">
+        <tr><td>Translate : <input type="text" id="trans" min="100" max="400" value="100" onchange="funcfronttrans(this.value)"></td>
+            <td> Enter as 100,200,300....</td></tr>
+        <tr><td>Rotate : <input type="text" id="trans" min="0" max="360" value="0" onchange="funcfrontrot(this.value)"></td>
+            <td> Enter angle between 0 to 360 degrees</td></tr>
+        <tr><td>Scale : <input type="text" id="trans" min="1" max="2" step='0.05' value="1" onchange="funcfrontscale(this.value)"></td>
+            <td> Enter as increase intervals of 0.05 eg: 1,1.05,1.10...</td></tr>
+        <tr><td>Shear : <input type="text" id="trans" min="0" max="360" value="0" onchange="funcfrontshear(this.value)"></td>
+            <td> Enter angle between 0 to 360 degrees</td></tr>
+    </table>
+</div>
+
+
+        <div id="divfrontsvg" style="overflow:hidden">
+
+            <svg id="front" height="700" width="1500" style="">
+                <line x1="400" y1="560" x2="294" y2="454" style="stroke:black ;stroke-width:4" />
+                <line x1="294" y1="454" x2="294" y2="279" style="stroke:black ;stroke-width:4" />
+                <line x1="400" y1="560" x2="400" y2="385" style="stroke:black ;stroke-width:4" />
+                <line x1="400" y1="385 " x2="294" y2="279" style="stroke:black ;stroke-width:4" />
+
+                <line x1="368" y1="526" x2="368" y2="428" style="stroke:black ;stroke-width:4" />
+                <line x1="326" y1="486" x2="326" y2="386" style="stroke:black ;stroke-width:4" />
+                <line x1="368" y1="428" x2="326" y2="386" style="stroke:black ;stroke-width:4" />
+
+                <line x1="400" y1="560" x2="647" y2="313" style="stroke:black ;stroke-width:4" />
+                <line x1="647" y1="313" x2="647" y2="138" style="stroke:black ;stroke-width:4" />
+                <line x1="647" y1="138" x2="400" y2="385" style="stroke:black ;stroke-width:4" />
+
+                <line x1="294" y1="279" x2="360" y2="220" style="stroke:black ;stroke-width:4" />
+                <line x1="360" y1="220" x2="400" y2="385" style="stroke:black ;stroke-width:4" />
+
+                <line x1="360" y1="220" x2="520" y2="80" style="stroke:black ;stroke-width:4" />
+
+                <line x1="520" y1="80" x2="647" y2="138" style="stroke:black ;stroke-width:4" />
+
+            </svg>
+        </div>
+
+
+<script>
+    //functions to perform 2D transformations on front view
+
+    function funcfronttrans(value) {
+        document.getElementById("trans").value=value;
+        var x = value;
+        var y="translate("+x+"px,0px)";
+        document.getElementById("front").style.transform = y;
+    }
+
+    function funcfrontrot(value) {
+        var i=value+" deg";
+        var x = value;
+        var y="rotate("+x+"deg)";
+        document.getElementById("front").style.transform = y;
+    }
+
+    function funcfrontscale(value) {
+        var x = value;
+        var y="scale("+x+","+x+")";
+        document.getElementById("front").style.transform = y;
+    }
+
+    function funcfrontshear(value) {
+        var i=value+" deg";
+        var x = value;
+        var y="skewX("+x+"deg)";
+        document.getElementById("front").style.transform = y;
+    }
+
+
+</script>
+</body>
+</html>
