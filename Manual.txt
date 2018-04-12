@@ -1,9 +1,0 @@
-    
-MANUAL
-----------------------------------------
-
---This part of the project I have implemented the Projections and Views of the object.
-
--- Open homepage.html to start the project.
-
---Just click on the different buttons to view different projections of the object.
