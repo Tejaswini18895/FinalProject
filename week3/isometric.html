@@ -1,0 +1,148 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>Computer Graphics : Assignment 3</title>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<style>
+    h1{text-align: center;
+        color: red;}
+
+    h4{
+        text-align: center;
+        color: red;
+    }
+
+    #IV
+    {
+        position: absolute;
+        left: 130px;
+        top: 710px;
+
+        font-size: 20px;
+        font-weight: 700;
+        font-family: "Times New Roman";
+        color: black;
+    }
+
+    #DV
+    {
+        position: absolute;
+        left: 530px;
+        top: 1110px;
+
+        font-size: 20px;
+        font-weight: 700;
+        font-family: "Times New Roman";
+        color: black;
+    }
+
+    #TV
+    {
+        position: absolute;
+        left: 930px;
+        top: 850px;
+
+        font-size: 20px;
+        font-weight: 700;
+        font-family: "Times New Roman";
+        color: black;
+    }
+
+</style>
+<body style="font-family:verdana;">
+<br>
+<header>Computer Graphics : Final Project</header>
+<p align ="center" style="color:black;font-family:TimesNewRoman;font-size:150%;"> Click any of the buttons  </p>
+<div class = "wrapper">
+    <table align="center">
+        <tr>
+
+            <td><a href="multiview.html" class="button"> Multiview Orthographic Projections</a></td>
+            <td><a href="oblique.html" class="button">Oblique View</a></td>
+            <td><a href="perspective.html" class="button">Perspective Projections</a></td>
+            <td><a href="isometric.html" class="button"> Axonometric Projections</a></td>
+
+        </tr>
+
+    </table>
+</div>
+
+<svg width="1500" height="1000">
+
+    <!-- Isometric 1st rect piece -->
+    <line x1="300" y1="485" x2="100" y2="410" style="stroke:black ;stroke-width:4" />
+    <line x1="300" y1="485" x2="300" y2="310" style="stroke:black ;stroke-width:4" />
+    <line x1="100" y1="410" x2="100" y2="235" style="stroke:black ;stroke-width:4" />
+    <line x1="100" y1="235" x2="300" y2="310" style="stroke:black ;stroke-width:4" />
+
+    <line x1="100" y1="235" x2="220" y2="110" style="stroke:black ;stroke-width:4" />
+    <line x1="220" y1="110" x2="300" y2="310" style="stroke:black ;stroke-width:4" />
+
+    <line x1="300" y1="485" x2="600" y2="310" style="stroke:black ;stroke-width:4" />
+    <line x1="300" y1="310" x2="600" y2="140" style="stroke:black ;stroke-width:4" />
+
+    <line x1="220" y1="110" x2="500" y2="10" style="stroke:black ;stroke-width:4" />
+    <line x1="500" y1="10" x2="600" y2="140" style="stroke:black ;stroke-width:4" />
+    <line x1="600" y1="140" x2="600" y2="310" style="stroke:black ;stroke-width:4" />
+
+    <line x1="150" y1="430" x2="150" y2="330" style="stroke:black ;stroke-width:4" />
+    <line x1="220" y1="455" x2="220" y2="360" style="stroke:black ;stroke-width:4" />
+    <line x1="150" y1="330" x2="220" y2="360" style="stroke:black ;stroke-width:4" />
+
+    <!-- Dimetric 1st rect piece -->
+
+    <line x1="300" y1="985" x2="300" y2="855" style="stroke:black ;stroke-width:4" />
+    <line x1="300" y1="985" x2="150" y2="865" style="stroke:black ;stroke-width:4" />
+    <line x1="150" y1="865" x2="150" y2="730" style="stroke:black ;stroke-width:4" />
+    <line x1="150" y1="730" x2="300" y2="855" style="stroke:black ;stroke-width:4" />
+
+    <line x1="150" y1="730" x2="250" y2="675" style="stroke:black ;stroke-width:4" />
+    <line x1="250" y1="675" x2="300" y2="855" style="stroke:black ;stroke-width:4" />
+
+    <line x1="300" y1="985" x2="600" y2="778" style="stroke:black ;stroke-width:4" />
+    <line x1="300" y1="855" x2="600" y2="650" style="stroke:black ;stroke-width:4" />
+
+
+    <line x1="250" y1="675" x2="460" y2="550" style="stroke:black ;stroke-width:4" />
+    <line x1="460" y1="550" x2="600" y2="650" style="stroke:black ;stroke-width:4" />
+    <line x1="600" y1="650" x2="600" y2="778" style="stroke:black ;stroke-width:4" />
+
+    <line x1="200" y1="905" x2="200" y2="850" style="stroke:black ;stroke-width:4" />
+    <line x1="245" y1="890" x2="245" y2="940" style="stroke:black ;stroke-width:4" />
+    <line x1="200" y1="850" x2="245" y2="890" style="stroke:black ;stroke-width:4" />
+
+    <!-- Trimetric 1st rect piece -->
+    <line x1="1000" y1="550" x2="1000" y2="375" style="stroke:black ;stroke-width:4" />
+    <line x1="1000" y1="550" x2="875" y2="510" style="stroke:black ;stroke-width:4" />
+    <line x1="1000" y1="550" x2="1240" y2="440" style="stroke:black ;stroke-width:4" />
+
+    <line x1="875" y1="510" x2="875" y2="335" style="stroke:black ;stroke-width:4" />
+    <line x1="875" y1="335" x2="1000" y2="375" style="stroke:black ;stroke-width:4" />
+
+    <line x1="1240" y1="440" x2="1240" y2="265" style="stroke:black ;stroke-width:4" />
+    <line x1="1240" y1="265" x2="1000" y2="375" style="stroke:black ;stroke-width:4" />
+
+    <line x1="875" y1="335" x2="960" y2="190" style="stroke:black ;stroke-width:4" />
+    <line x1="960" y1="190" x2="1000" y2="375" style="stroke:black ;stroke-width:4" />
+
+    <line x1="960" y1="190" x2="1170" y2="130" style="stroke:black ;stroke-width:4" />
+    <line x1="1240" y1="265" x2="1170" y2="130" style="stroke:black ;stroke-width:4" />
+
+    <line x1="910" y1="430" x2="910" y2="520" style="stroke:black ;stroke-width:4" />
+    <line x1="950" y1="450" x2="950" y2="535" style="stroke:black ;stroke-width:4" />
+    <line x1="910" y1="430" x2="950" y2="450" style="stroke:black ;stroke-width:4" />
+
+
+
+</svg>
+
+</body>
+<p id="IV"> <u>ISOMETRIC VIEW</u></p>
+<p id="DV"> <u>DIMETRIC VIEW</u></p>
+<p id="TV"> <u>TRIMETRIC VIEW</u></p>
+
+
+</html>
