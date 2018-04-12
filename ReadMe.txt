@@ -4,21 +4,34 @@ Author Name : Tejaswini Gaddam
 Final Project
 --------------------------------------------------------------------
 
-Files Included: 
-1.house.html
-2.house3d.html
-3.housetrans.html
-4.pile.html
-5.pile3d.html
-6.piletrans.html
-7.slide.html
-8.slide3d.html
-9.slidetrans.html
-10.style.css
+homepage.html is the home page which contains buttons on clikcing directs to approprite pages.
 
--- homepage.html is the home page which contains buttons on clikcing directs to approprite pages.
+Week-3:
+*******
+Files Included: 
+1.homepage.html
+2.perspective.html
+3.isometric.html
+4.oblique.html
+5.multiview.html
+
+--For this week, I have implemented the different views and the projections of the 3d object created.
+
+--The different types of projections are the Multiview, Oblique, Axonometric and Perspective projections.
+
+-- Multivew Projections showcased the front, top, left side, right side, back and bottom side views of the object.
+
+--Perspective projections showcases the 1 point, 2point and 3 point projections.
+
+-- Axonometric has the Isometric, Dimetric and Trimetric views of the object. 
 
 Week-2:
+********
+Files Included: 
+1.homepage.html
+2.housetrans.html
+3.piletrans.html
+4.slidetrans.html
 
 --Last week I developed the 2d views of the object and developed a 3d model for the objects.
 
@@ -29,7 +42,7 @@ Week-2:
 -- Giving the particular value in the textboxes provided it changes the positions or the size of the object.
 
 Week-1:
-
+*********
 -- In the 2d views, On clicking "House" it goes to house.html page which shows the front side and top view of the house, there is a link on the page for viewing 3d model of the house.
 
 -- On clicking "slidingbox" it goes to slide.html page which shows the front side and top view of the image, there is a link on the page for viewing 3d model of the sliding box.
@@ -39,4 +52,4 @@ Week-1:
 REFERENCES:
 1.https://www.w3schools.com/html/
 2.http://stackoverflow.com/
-  
+3.https://study.com/academy/lesson/what-is-an-isometric-drawing-definition-examples.html  
