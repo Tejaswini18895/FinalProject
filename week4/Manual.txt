@@ -1,0 +1,8 @@
+    
+MANUAL
+----------------------------------------
+
+-- For this week I have used three.js and impletmented the change in the position of the light and camera with respective to the object.
+
+-- Open light.html and camera.html to view the project.
+
