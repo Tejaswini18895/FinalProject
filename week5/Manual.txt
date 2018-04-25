@@ -1,0 +1,25 @@
+    
+MANUAL
+----------------------------------------
+
+-- For this week I have used three.js and impletmented the different textures on the different ed objects like the cylinder, cone, cube, octohedron, sphere and others. 
+
+--Apart from them, I have create a sphere where we can change the texture of the object to red by clicking on it.
+
+--Open 3dobjects_Textures folder and open 3dobjectstextures.html to view the different 3d objects and textures on them.
+
+--Open Change_Texture folder and click on the Texture_Change.html file to view the change in the textures of the object.
+
+--Zoom in and zoom out for the more understanding of the texture change on the sphere.
+
+--Open video_texture.html file , where you can see a video being played on the surface of the object. 
+
+--The video has controls to stop, rewind, play and pause.
+	P: play video
+	Space: pause video
+	S: stop video
+	R: rewind to beginning 
+
+-- Click on the left top corner button, (i) to know about the page.
+
+

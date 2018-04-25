@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Textures</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            margin: 0px;
+            background-color: #050505;
+            color: #fff;
+            overflow: hidden;
+        }
+        a { color: #e00 }
+        #info {
+            position: absolute;
+            top: 0px; width: 100%;
+            color: #ffffff;
+            padding: 5px;
+            font-family:Monospace;
+            font-size:13px;
+            text-align:center;
+            z-index:1000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="info">
+    <p style="font-size:160%;">Textures on different 3d objects</p>
+</div>
+
+<script src="JS/three.js"></script>
+<script src="JS/DDSLoader.js"></script>
+
+<script src="JS/Detector.js"></script>
+
+<script>
+    if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+    var camera, scene, renderer;
+    var meshes = [];
+    init();
+    animate();
+    function init() {
+        camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 2000 );
+        camera.position.z = 1000;
+        scene = new THREE.Scene();
+        var geometry = new THREE.BoxGeometry( 200, 200, 200 );
+        /*
+        This is how compressed textures are supposed to be used:
+        DXT1 - RGB - opaque textures
+        DXT3 - RGBA - transparent textures with sharp alpha transitions
+        DXT5 - RGBA - transparent textures with full alpha range
+        */
+        var loader = new THREE.DDSLoader();
+        var map1 = loader.load( 'images/disturb_dxt1_nomip.dds' );//donut
+        map1.minFilter = map1.magFilter = THREE.LinearFilter;
+        map1.anisotropy = 4;
+        var map2 = loader.load( 'images/name.dds' );//6
+        map2.anisotropy = 4;
+        var map3 = loader.load( 'images/hepatica_dxt3_mip.dds' );//2
+        map3.anisotropy = 4;
+        var map4 = loader.load( 'images/explosion_dxt5_mip.dds' );//1
+        map4.anisotropy = 4;
+        var map5 = loader.load( 'images/disturb_argb_nomip.dds' );//8
+        map5.minFilter = map5.magFilter = THREE.LinearFilter;
+        map5.anisotropy = 4;
+        var map6 = loader.load( 'images/disturb_argb_mip.dds' );//4
+        map6.anisotropy = 4;
+        var cubemap1 = loader.load( 'images/Mountains.dds', function ( texture ) {//5
+            texture.magFilter = THREE.LinearFilter;
+            texture.minFilter = THREE.LinearFilter;
+            texture.mapping = THREE.CubeReflectionMapping;
+            material1.needsUpdate = true;
+        } );
+
+        var cubemap2 = loader.load( 'images/Mountains_argb_mip.dds', function ( texture ) {//3
+            texture.magFilter = THREE.LinearFilter;
+            texture.minFilter = THREE.LinearFilter;
+            texture.mapping = THREE.CubeReflectionMapping;
+            material5.needsUpdate = true;
+        } );
+
+        var cubemap3 = loader.load( 'images/flower.dds', function ( texture ) {//7
+            texture.magFilter = THREE.LinearFilter;
+            texture.minFilter = THREE.LinearFilter;
+            texture.mapping = THREE.CubeReflectionMapping;
+            material6.needsUpdate = true;
+        } );
+
+        var material1 = new THREE.MeshBasicMaterial( { map: map1, envMap: cubemap1 } );
+        var material2 = new THREE.MeshBasicMaterial( { map: map2 } );
+        var material3 = new THREE.MeshBasicMaterial( { map: map3, alphaTest: 0.5, side: THREE.DoubleSide } );
+        var material4 = new THREE.MeshBasicMaterial( { map: map4, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthTest: false, transparent: true } );
+        var material5 = new THREE.MeshBasicMaterial( { envMap: cubemap2 } );
+        var material6 = new THREE.MeshBasicMaterial( { envMap: cubemap3 } );
+        var material7 = new THREE.MeshBasicMaterial( { map: map5 } );
+        var material8 = new THREE.MeshBasicMaterial( { map: map6 } );
+
+        /*var moonTexture = THREE.ImageUtils.loadTexture( 'flower.jpg' );
+        var material9 = new THREE.MeshBasicMaterial( {map: moonTexture} );
+        //var moon = new THREE.Mesh( sphereGeom.clone(), material9 );
+*/
+        mesh = new THREE.Mesh(new THREE.OctahedronGeometry( 150, 0 ),material1 );
+        mesh.position.x = -600;
+        mesh.position.y = 200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+        mesh = new THREE.Mesh( geometry, material3 );
+        mesh.position.x = -200;
+        mesh.position.y = 200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+
+        mesh = new THREE.Mesh(new THREE.CylinderGeometry( 120, 120, 210, 20, 4 ),material4);
+            // radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
+        mesh.position.x = 200;
+        mesh.position.y = 200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+        mesh = new THREE.Mesh(new THREE.TorusGeometry( 100, 25, 8, 4 ), material1 );
+        // radius of entire torus, diameter of tube (less than total radius),
+        // segments around radius, segments around22000000000000000000000000000000
+        mesh.position.x = 600;// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
+        mesh.position.y = 200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+        /*var moonTexture = THREE.ImageUtils.loadTexture( 'images/moon.jpg' );
+	var moonMaterial = new THREE.MeshBasicMaterial( { map: moonTexture } );
+	var moon = new THREE.Mesh( sphereGeom.clone(), moonMaterial );*/
+
+        var mesh = new THREE.Mesh( new THREE.TorusGeometry( 100, 50, 32, 16 ), material5 );
+        mesh.position.x = -600;
+        mesh.position.y = -200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+        mesh = new THREE.Mesh( new THREE.SphereGeometry( 150, 32, 16 ), material4 );
+        mesh.position.x = -200;
+        mesh.position.y = -200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+        mesh = new THREE.Mesh(new THREE.CylinderGeometry( 0, 100, 250, 20, 4 ), material3 );
+        mesh.position.x = 200;//// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
+        mesh.position.y = -200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+
+        mesh = new THREE.Mesh(new THREE.TorusKnotGeometry( 80, 30, 60, 10, 2, 3 ), material5 );
+            // total knot radius, tube radius, number cylinder segments, sides per cyl. segment,
+            //  p-loops around torus, q-loops around torus
+        mesh.position.x = 600;
+        mesh.position.y = -200;
+        scene.add( mesh );
+        meshes.push( mesh );
+
+
+
+        renderer = new THREE.WebGLRenderer( { antialias: true } );
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+        window.addEventListener( 'resize', onWindowResize, false );
+    }
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+    }
+    function animate() {
+        requestAnimationFrame( animate );
+        var time = Date.now() * 0.001;
+        for ( var i = 0; i < meshes.length; i ++ ) {
+            var mesh = meshes[ i ];
+            mesh.rotation.x = time;
+            mesh.rotation.y = time;
+        }
+        renderer.render( scene, camera );
+    }
+</script>
+
+</body>
+</html>
